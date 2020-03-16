@@ -1,19 +1,20 @@
 import React from 'react';
 import NavBar from './components/navbar'
-import NavTab from './components/navtab'
+import TextBox from './components/textbox'
+import { connect } from 'react-redux';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <NavBar>
-        {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18].map(i => 
-          <NavTab 
-            title={i}
-          />
-          )}
-      </NavBar>
+      <NavBar />
+      <TextBox />
+      {props.data.map(i => i.name)}
     </div>
   );
 }
 
-export default App;
+export default connect(
+  state => ({
+    data: state.data
+  })
+)(App);
