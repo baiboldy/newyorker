@@ -11,6 +11,8 @@ const NavBar = (props) => {
                     key={idx}
                     id={i.id}
                     title={i.name}
+                    active={i.active}
+                    videoId={i.videoId}
                 />
             )}
         </div>

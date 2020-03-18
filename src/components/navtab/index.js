@@ -14,8 +14,13 @@ const NavTab = (props) => {
         props.onDeleteTab(props.id)
     }
 
+    const onUpdateActive = () => {
+        props.onUpdateActiveTab(props.id)
+        props.onUpdateVideo(props.videoId)
+    }
+
     return (
-        <div className={classNames('navtab')}>
+        <div onClick={onUpdateActive} className={classNames('navtab', { 'active': props.active })}>
             <div className='title'>
                 {title}
                 <div className='close' onClick={onCloseClick}></div>
@@ -27,11 +32,14 @@ const NavTab = (props) => {
 export default connect(
     state => ({}),
     dispatch => ({
-        onAddTab: (name) => {
-            dispatch({ type: 'ADD_TAB', payload: name })
-        },
         onDeleteTab: (id) => {
             dispatch({ type: 'DELETE_TAB', payload: id })
+        },
+        onUpdateActiveTab: (id) => {
+            dispatch({ type: 'UPDATE_ACTIVE_TAB', payload: id })
+        },
+        onUpdateVideo: (videoId) => {
+            dispatch({ type: 'UPDATE_ACTIVE_VIDEO', payload: videoId })
         }
     })
 )(NavTab);

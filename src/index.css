@@ -15,7 +15,7 @@ code {
 .navbar {
   width: 100%;
   height: calc(100% - 10px);
-  background: #1b85f0;
+  background: rgb(92, 175, 231);
   text-align: center;
   display: flex;
   flex-wrap: wrap;
@@ -25,11 +25,19 @@ code {
   min-width: 195px;
   max-width: 195px;
   border: 1px solid #ffffff;
-  background-color: #ffffff;
+  background-color:rgba(68, 68, 68,0.1);
   border-radius: 5px;
   max-height: 100%;
   min-height: 100%;
   margin: 4px 5px 5px 5px;
+}
+
+.navbar .navtab:hover {
+  background-color:rgba(68, 68, 68,0.5);
+}
+
+.navbar .navtab.active {
+  background-color: rgb(255, 153, 153);
 }
 
 .navbar .navtab .title{
@@ -46,4 +54,31 @@ code {
 
 .navbar .navtab .title .close::after {
   content: '×';
+}
+
+.content {
+  background-color: rgba(23,23,33,0.5);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 603px;
+}
+
+.content .film{
+  min-width: 60%;
+  max-width: 80%;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  max-height: 503px;
+  min-height: 503px;
+  align-items: center;
+  display: flex;
+  background-color: black;
+}
+
+.content .film iframe{
+  min-width: 100px;
+  max-height: 500px;
 }
