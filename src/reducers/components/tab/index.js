@@ -5,13 +5,13 @@ const initialState = [
         id: uuid(),
         name: 'Главная страница',
         active: true,
-        videoId: '835877',
+        videoId: '28454',
     },
     {
         id: uuid(),
         name: 'Новости',
         active: false,
-        videoId: '276446',
+        videoId: '12409',
     }
 ]
 

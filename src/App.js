@@ -1,7 +1,10 @@
 import React from 'react';
 import NavBar from './components/navbar'
-import TextBox from './components/textbox'
+// import TextBox from './components/textbox'
 import Content from './components/content'
+import Navigator from './components/navigator'
+import Client from './components/clientpart'
+import Search from './components/search'
 import { connect } from 'react-redux';
 
 function App(props) {
@@ -10,7 +13,12 @@ function App(props) {
       <NavBar />
       {/* <TextBox /> */}
       {/* {props.data.map(i => i.name)} */}
-      <Content />
+      <Client>
+        <Navigator>
+          <Search />
+        </Navigator>
+        <Content />
+      </Client>
     </div>
   );
 }
