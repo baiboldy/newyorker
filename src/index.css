@@ -23,7 +23,7 @@ code {
 
 .navbar .navtab {
   min-width: 195px;
-  max-width: 195px;
+  max-width: 250px;
   border: 1px solid #ffffff;
   background-color:rgba(68, 68, 68,0.1);
   border-radius: 5px;
@@ -42,6 +42,7 @@ code {
 
 .navbar .navtab .title{
   position: relative;
+  padding: 3px;
 }
 
 .navbar .navtab .title .close {
@@ -56,18 +57,19 @@ code {
   content: '×';
 }
 
-.content {
-  flex: 5;
+.ViewMovie, .content {
+  flex: 5.6;
   background-color: rgba(23,23,33,0.5);
-  height: 100%;
+  max-height: calc(100% - 10px);
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  min-height: 603px;
+  min-height: 597px;
+  flex-wrap: wrap;
 }
 
-.content .film{
+.ViewMovie .film{
   min-width: 60%;
   max-width: 80%;
   border: 1px solid #ffffff;
@@ -94,17 +96,16 @@ code {
   border-right: 1px solid rgb(253, 252, 252);
 }
 
-.navigator .close {
-  position: absolute;
-  left: 15%;
+.search .close {
+  position: relative;
+  left: 16%;
   top: 0%;
   cursor: pointer;
-  transform: translateY(135%);
 }
 
-.navigator .close::after{
+/* .navigator .close::after{
   content: '×';
-}
+} */
 
 .hide{
   display: none;
@@ -119,6 +120,7 @@ code {
 
 .search .search-title{
   margin: 5px;
+  color: #fff;
 }
 
 .search input {
@@ -138,6 +140,21 @@ code {
   color: white;
 }
 
+.search .list{
+  width: 100%;
+  list-style: none;
+  padding: 0;
+}
+
+.search .list .item{
+  padding: 3px;
+  cursor: pointer;
+  color: #fff;
+  border: 1px solid rgb(68, 68, 68);
+  margin: 2px;
+  min-height: 30px;
+}
+
 .showNavigator {
   position: absolute;
   top: 40%;
@@ -155,4 +172,25 @@ code {
 
 .showNavigator.hide {
   display: none;
+}
+
+.card {
+  min-height: 120px;
+  max-height: 120px;
+  min-width: 200px;
+  max-width: 200px;
+  background-color: rgb(255, 255, 255);
+  margin: 5px;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 5px 10px 10px rgb(158, 241, 24) inset;
+}
+
+.card .title {
+  text-align: center;
 }

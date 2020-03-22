@@ -13,7 +13,6 @@ const Navigator = props => {
         <Fragment>
             <div className={classNames('navigator', { 'hide': props.navigator.isOpen })}>
                 {props.children}
-                <div className={classNames('close')} onClick={changeStateNavigator}></div>
             </div>
             <div className={classNames('showNavigator', { 'hide': !props.navigator.isOpen })} onClick={changeStateNavigator}>
                 #show >

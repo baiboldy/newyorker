@@ -5,13 +5,13 @@ const initialState = [
         id: uuid(),
         name: 'Главная страница',
         active: true,
-        videoId: '28454',
+        tag: '#main'
     },
     {
         id: uuid(),
         name: 'Новости',
         active: false,
-        videoId: '12409',
+        tag: '#news'
     }
 ]
 
@@ -20,16 +20,30 @@ export default (state = initialState, action) => {
         return [
             ...state,
             {
-                id: uuid(),
-                name: action.payload,
-                active: true,
-                videoId: '835877',
+                id: action.payload.id,
+                name: action.payload.name,
+                active: false,
             }
         ]
     } else if (action.type === 'DELETE_TAB') {
         return state.filter(i => i.id !== action.payload)
     } else if (action.type === 'UPDATE_ACTIVE_TAB') {
-        const tab = state.reduce((acc, cur) => { if (cur.id === action.payload) { return [...acc, { ...cur, active: true }] } return [...acc, { ...cur, active: false }] }, [])
+        let tab = [];
+        if (action.payload) {
+            tab = state.reduce((acc, cur) => {
+                if (cur.id === action.payload) {
+                    return [...acc, { ...cur, active: true }]
+                }
+                return [...acc, { ...cur, active: false }]
+            }, [])
+        } else {
+            tab = state.reduce((acc, cur) => {
+                if (cur.tag && cur.tag === '#main') {
+                    return [...acc, { ...cur, active: true }]
+                }
+                return [...acc, { ...cur, active: false }]
+            }, [])
+        }
         return tab
     }
     return state
