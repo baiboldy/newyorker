@@ -5,12 +5,13 @@ import { connect } from 'react-redux';
 
 const NavBar = (props) => {
     return (
-        <div className={classNames('navbar')}>
+        <div ref={props.width} className={classNames('navbar')}>
             {props.tabs.map((i, idx) =>
                 <NavTab
                     key={idx}
                     id={i.id}
                     title={i.name}
+                    active={i.active}
                 />
             )}
         </div>

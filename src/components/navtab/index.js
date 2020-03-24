@@ -10,15 +10,21 @@ const NavTab = (props) => {
         setTitle(props.title)
     }, [props.title])
 
-    const onCloseClick = () => {
+    const onCloseClick = (event) => {
+        event.stopPropagation()
+        props.onUpdateActiveTab()
         props.onDeleteTab(props.id)
     }
 
+    const onUpdateActive = () => {
+        props.onUpdateActiveTab(props.id)
+    }
+
     return (
-        <div className={classNames('navtab')}>
+        <div onClick={onUpdateActive} className={classNames('navtab', { 'active': props.active })}>
             <div className='title'>
                 {title}
-                <div className='close' onClick={onCloseClick}></div>
+                <div className='close' onClick={(event) => onCloseClick(event)}></div>
             </div>
         </div>
     )
@@ -27,11 +33,14 @@ const NavTab = (props) => {
 export default connect(
     state => ({}),
     dispatch => ({
-        onAddTab: (name) => {
-            dispatch({ type: 'ADD_TAB', payload: name })
-        },
         onDeleteTab: (id) => {
             dispatch({ type: 'DELETE_TAB', payload: id })
+        },
+        onUpdateActiveTab: (id) => {
+            dispatch({ type: 'UPDATE_ACTIVE_TAB', payload: id })
+        },
+        onSwitchMain: () => {
+            dispatch({ type: 'SWITCH_MAIN', payload: null })
         }
     })
 )(NavTab);
