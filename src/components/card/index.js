@@ -5,13 +5,18 @@ import classNames from 'classnames'
 const Card = props => {
 
     const onShowVideo = () => {
-        props.addTab(props.id, props.title)
-        props.updateMainPage(props.id)
+        if (props.tabs.some(i => i.id === props.id)) {
+            props.updateMainPage(props.id)
+        } else {
+            props.addTab(props.id, props.title)
+            props.updateMainPage(props.id)
+        }
     }
 
     return (
         <div className={classNames('card')}>
-            <div onClick={() => onShowVideo()} className={classNames('title')}>{props.title}/{props.origTitle}</div>
+            <div onClick={onShowVideo} className={classNames('title')}>{props.title}/{props.origTitle}</div>
+            <hr></hr>
             <div>{props.year.split('-')[0]}</div>
         </div>
     )
@@ -19,7 +24,7 @@ const Card = props => {
 
 export default connect(
     state => ({
-
+        tabs: state.tabs
     }),
     dispatch => ({
         updateMainPage: (id) => {

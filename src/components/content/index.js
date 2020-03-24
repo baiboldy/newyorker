@@ -8,7 +8,7 @@ const Content = (props) => {
     const choosePage = () => {
         if (props.activePage && props.activePage.tag && props.activePage.tag === '#main') {
             return props.content.map((movie) =>
-                <Card id={movie.id} title={movie.title} year={movie.year} origTitle={movie.orig_title} />
+                <Card id={movie.id} title={movie.ru_title} year={movie.year} origTitle={movie.orig_title} />
             )
         } else if (props.activePage && props.activePage.tag && props.activePage.tag === '#news') {
 

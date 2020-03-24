@@ -103,10 +103,6 @@ code {
   cursor: pointer;
 }
 
-/* .navigator .close::after{
-  content: '×';
-} */
-
 .hide{
   display: none;
 }
@@ -189,6 +185,11 @@ code {
   display: flex;
   flex-direction: column;
   box-shadow: 2px 5px 10px 10px rgb(158, 241, 24) inset;
+  font-size: 0.8rem;
+}
+
+.card hr{
+  width: 80%;
 }
 
 .card .title {
